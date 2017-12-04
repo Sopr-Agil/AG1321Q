@@ -15,15 +15,20 @@
     
     
 function handler($view ='') {  
-    $obj = new View();
+    $print_view = new View();
     $users = new UsuarioClass();
    
         switch ($view) {             
             case VIEW_ADMIN:
                 echo $users->getUsers();
-                $obj->html($view);                
+               $print_view->html($view);
                 break;
-            default: $obj->html(VIEW_HOME);
+            
+            case VIEW_MONITOREO:
+                $print_view->html($view);
+                
+                
+            default: $print_view->html(VIEW_HOME);
     }//switch
 }//handler
 ?>
